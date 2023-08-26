@@ -1,8 +1,10 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
+        jcenter()
     }
 }
 dependencyResolutionManagement {
@@ -10,8 +12,16 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
 rootProject.name = "WeatherHelper2"
 include ':app'
 include ':feature'
+include ':data'
+include ':data:network'
+include ':data:weather:weather_repository'
+include ':data:weather:weather_network'
+include ':data:weather:weather_persitent'
+include ':data:place:repository'
+include ':core:coroutines'
