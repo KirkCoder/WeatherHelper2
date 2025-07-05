@@ -16,6 +16,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 defaultConfig.targetSdk = 35
                 @Suppress("UnstableApiUsage")
                 testOptions.animationsDisabled = true
+
+                buildFeatures {
+                    viewBinding = true
+                }
             }
         }
     }
