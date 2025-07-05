@@ -1,16 +1,15 @@
+import com.example.convention.NiaBuildType
+
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.my.android)
+    alias(libs.plugins.my.hilt)
 }
 
 android {
-    namespace = "com.example.myapplication"
-    compileSdk = 35
+    namespace = "com.example.weatherhelper"
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
-        minSdk = 24
-        targetSdk = 35
+        applicationId = "com.example.weatherhelper"
         versionCode = 1
         versionName = "1.0"
 
@@ -18,21 +17,19 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = NiaBuildType.DEBUG.applicationIdSuffix
+        }
         release {
             isMinifyEnabled = false
+            applicationIdSuffix = NiaBuildType.RELEASE.applicationIdSuffix
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         viewBinding = true
     }
