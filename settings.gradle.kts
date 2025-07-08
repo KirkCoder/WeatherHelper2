@@ -20,5 +20,11 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My Application"
+rootProject.name = "Weather Helper"
 include(":app")
+include(":core:network")
+include(":feature:weather")
+include(":data:mainlocation")
+include(":domain:mainlocationweather")
+include(":domain:forecast")
+include(":data:forecast")

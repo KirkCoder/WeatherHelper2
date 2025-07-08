@@ -1,8 +1,7 @@
-import com.example.convention.NiaBuildType
+import com.example.convention.WeatherHelperBuildType
 
 plugins {
-    alias(libs.plugins.my.android)
-    alias(libs.plugins.my.hilt)
+    alias(libs.plugins.wh.android.common)
 }
 
 android {
@@ -16,13 +15,17 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         debug {
-            applicationIdSuffix = NiaBuildType.DEBUG.applicationIdSuffix
+            applicationIdSuffix = WeatherHelperBuildType.DEBUG.applicationIdSuffix
         }
         release {
             isMinifyEnabled = false
-            applicationIdSuffix = NiaBuildType.RELEASE.applicationIdSuffix
+            applicationIdSuffix = WeatherHelperBuildType.RELEASE.applicationIdSuffix
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -43,4 +46,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(project(":feature:weather"))
 }

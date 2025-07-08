@@ -13,6 +13,8 @@ class JvmLibraryConventionPlugin : Plugin<Project> {
             configureKotlinJvm()
             dependencies {
                 "testImplementation"(libs.findLibrary("kotlin.test").get())
+                "implementation"(libs.findLibrary("javax.inject").get())
+                "implementation"(libs.findLibrary("kotlinx.coroutines.core").get())
             }
         }
     }

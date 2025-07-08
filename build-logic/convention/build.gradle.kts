@@ -36,16 +36,24 @@ tasks {
 gradlePlugin {
     plugins{
         register("hilt") {
-            id = libs.plugins.my.hilt.get().pluginId
+            id = libs.plugins.wh.hilt.get().pluginId
             implementationClass = "HiltConventionPlugin"
         }
         register("androidApplication") {
-            id = libs.plugins.my.android.get().pluginId
+            id = libs.plugins.wh.android.common.get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("jvmLibrary") {
-            id = libs.plugins.my.kotlin.get().pluginId
+            id = libs.plugins.wh.kotlin.get().pluginId
             implementationClass = "JvmLibraryConventionPlugin"
+        }
+        register("androidLibrary") {
+            id = libs.plugins.wh.android.library.get().pluginId
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidFeature") {
+            id = libs.plugins.wh.android.feature.get().pluginId
+            implementationClass = "AndroidFeatureConventionPlugin"
         }
     }
 }
