@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.weatherhelper.mainlocationweather.GetMainLocationWeatherUseCase
 import com.example.weatherhelper.mainlocationweather.models.MainLocationWeatherForecast
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,8 +22,16 @@ class MainLocationWeatherViewModel @Inject constructor(
     val forecastLiveData: LiveData<MainLocationWeatherForecast>
         get() = _forecastLiveData
 
+    private var refreshJob: Job? = null
+
     init {
-        viewModelScope.launch {
+        update()
+    }
+
+    fun update() {
+        refreshJob?.cancel()
+
+        refreshJob = viewModelScope.launch {
             try {
                 getMainLocationWeatherUseCase.execute().collect { forecast ->
                     _forecastLiveData.value = forecast
