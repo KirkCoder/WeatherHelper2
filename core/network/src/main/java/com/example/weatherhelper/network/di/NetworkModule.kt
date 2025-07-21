@@ -6,8 +6,11 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import kotlinx.serialization.json.Json
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -29,10 +32,19 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
-    fun getRetrofit(okHttpClient: OkHttpClient) {
-        Retrofit.Builder()
+    fun getRetrofit(okHttpClient: OkHttpClient, networkJson: Json): Retrofit {
+        return Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl(BuildConfig.BACKEND_URL)
+            .addConverterFactory(
+                networkJson.asConverterFactory("application/json".toMediaType()),
+            )
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesNetworkJson(): Json = Json {
+        ignoreUnknownKeys = true
     }
 }

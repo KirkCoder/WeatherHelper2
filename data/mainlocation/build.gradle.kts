@@ -7,5 +7,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain:mainlocationweather"))
+    implementation(project(":domain:mainlocationforecast"))
 }

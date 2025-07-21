@@ -2,6 +2,7 @@ import com.example.convention.WeatherHelperBuildType
 
 plugins {
     alias(libs.plugins.wh.android.common)
+    alias(libs.plugins.wh.hilt)
 }
 
 android {
@@ -46,6 +47,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(project(":feature:mainweather"))
 
-    implementation(project(":feature:weather"))
+    implementation(project(":domain:forecast"))
+    implementation(project(":domain:mainlocationforecast"))
+    implementation(project(":data:forecast"))
+    implementation(project(":data:mainlocation"))
 }

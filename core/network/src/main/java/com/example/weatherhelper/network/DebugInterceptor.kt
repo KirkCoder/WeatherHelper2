@@ -20,6 +20,6 @@ internal class DebugInterceptor : Interceptor {
     }
 }
 
-private fun log(message: String) {
+private fun log(message: String) { // todo create utils
     Log.d("WEATHER_HELPER_DEBUG", message)
 }
