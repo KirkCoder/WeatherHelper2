@@ -1,7 +1,5 @@
-package com.example.weatherhelper.network.di
+package com.example.weatherhelper.core.coroutines.di
 
-import com.example.weatherhelper.network.Dispatcher
-import com.example.weatherhelper.network.WeatherHelperDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,6 +21,6 @@ internal object CoroutineScopesModule {
     @Singleton
     @ApplicationScope
     fun providesCoroutineScope(
-        @Dispatcher(WeatherHelperDispatchers.Default) dispatcher: CoroutineDispatcher,
+        @com.example.weatherhelper.core.coroutines.Dispatcher(com.example.weatherhelper.core.coroutines.WeatherHelperDispatchers.Default) dispatcher: CoroutineDispatcher,
     ): CoroutineScope = CoroutineScope(SupervisorJob() + dispatcher)
 }

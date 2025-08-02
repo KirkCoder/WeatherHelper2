@@ -1,4 +1,4 @@
-package com.example.weatherhelper.network
+package com.example.weatherhelper.core.coroutines
 
 import javax.inject.Qualifier
 import kotlin.annotation.AnnotationRetention.RUNTIME

@@ -1,8 +1,8 @@
 package com.example.weatherhelper.mainlocationweather.models
 
-import com.example.forecast.models.Forecasts
+import com.example.forecast.models.Forecast
 
 data class MainLocationWeatherForecast(
     val name: String,
-    val forecasts: Forecasts,
+    val forecasts: List<Forecast>,
 )

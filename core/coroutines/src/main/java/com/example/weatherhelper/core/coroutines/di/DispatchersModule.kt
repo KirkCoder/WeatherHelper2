@@ -1,7 +1,5 @@
-package com.example.weatherhelper.network.di
+package com.example.weatherhelper.core.coroutines.di
 
-import com.example.weatherhelper.network.Dispatcher
-import com.example.weatherhelper.network.WeatherHelperDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,10 +11,10 @@ import kotlinx.coroutines.Dispatchers
 @InstallIn(SingletonComponent::class)
 object DispatchersModule {
     @Provides
-    @Dispatcher(WeatherHelperDispatchers.IO)
+    @com.example.weatherhelper.core.coroutines.Dispatcher(com.example.weatherhelper.core.coroutines.WeatherHelperDispatchers.IO)
     fun providesIODispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
-    @Dispatcher(WeatherHelperDispatchers.Default)
+    @com.example.weatherhelper.core.coroutines.Dispatcher(com.example.weatherhelper.core.coroutines.WeatherHelperDispatchers.Default)
     fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class MainLocationRepositoryImpl @Inject constructor(
-    private val mainLocationStorage: MainLocationPersistentStorage
+    private val mainLocationStorage: MainLocationPersistentStorage,
 ) : MainLocationRepository {
     override suspend fun observeMainLocation(): Flow<MainLocation> {
         return mainLocationStorage.getMainLocation().map { dao ->

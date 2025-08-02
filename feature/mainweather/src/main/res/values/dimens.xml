@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="std_margin">16dp</dimen>
+    <dimen name="temperature_font_size">68sp</dimen>
+    <dimen name="description_font_size">18sp</dimen>
+    <dimen name="feels_like_font_size">18sp</dimen>
+    <dimen name="std_font_size">14sp</dimen>
+</resources>

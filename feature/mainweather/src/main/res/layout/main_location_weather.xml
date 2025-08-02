@@ -9,11 +9,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/main_info"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewWeatherList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Привет мир!" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
