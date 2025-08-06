@@ -9,6 +9,7 @@ class MainLocationWeatherAdapter : ListDelegationAdapter<List<WeatherPresentatio
         delegatesManager.addDelegate(TitleDelegate())
             .addDelegate(MainLocationMainWeatherDelegate())
             .addDelegate(MainLocationHoursWeatherDelegate())
+            .addDelegate(MainLocationDailyWeatherDelegate())
     }
 
     fun setData(list: List<WeatherPresentation>) {

@@ -17,4 +17,5 @@ dependencies {
     implementation(project(":domain:mainlocationforecast"))
     implementation(project(":domain:forecast"))
     implementation(project(":core:network"))
+    implementation(project(":core:coroutines"))
 }

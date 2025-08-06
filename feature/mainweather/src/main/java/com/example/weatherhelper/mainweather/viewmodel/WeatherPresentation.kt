@@ -16,10 +16,24 @@ sealed class WeatherPresentation {
         val description: String?,
     ): WeatherPresentation()
 
-    data class HoursWeather(
-        val temp: String,
+    data class DayWeather(
+        val dayTemp: String,
+        val nightTemp: String,
         val dt: String,
+        val rain: String,
         @DrawableRes
         val icon: Int,
     ): WeatherPresentation()
+
+    data class HoursWeather(
+        val hoursWeather: List<HourWeather>,
+    ): WeatherPresentation() {
+
+        data class HourWeather(
+            val temp: String,
+            val dt: String,
+            @DrawableRes
+            val icon: Int,
+        )
+    }
 }

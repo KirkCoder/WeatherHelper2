@@ -1,6 +1,6 @@
 package com.example.watherhelper.forecast.storage
 
-import com.example.watherhelper.forecast.ForecastsDto
+import com.example.watherhelper.forecast.dto.ForecastsDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 

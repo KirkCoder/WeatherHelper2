@@ -2,6 +2,7 @@ package com.example.weatherhelper.mainweather.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherhelper.mainweather.databinding.MainLocationHoursWeatherBinding
 import com.example.weatherhelper.mainweather.viewmodel.WeatherPresentation
@@ -34,9 +35,16 @@ class MainLocationHoursWeatherViewHolder(
     private val binding: MainLocationHoursWeatherBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    private val adapter = MainLocationHoursWeatherAdapter()
+
+    init {
+        with(binding.recyclerViewWeatherHours) {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = this@MainLocationHoursWeatherViewHolder.adapter
+        }
+    }
+
     fun bind(mainWeather: WeatherPresentation.HoursWeather) {
-        binding.dt.text = mainWeather.dt
-        binding.temperature.text = mainWeather.temp.toString()
-        binding.weatherIcon.setImageResource(mainWeather.icon)
+        adapter.setData(mainWeather.hoursWeather)
     }
 }

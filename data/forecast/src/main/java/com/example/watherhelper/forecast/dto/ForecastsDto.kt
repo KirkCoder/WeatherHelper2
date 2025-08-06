@@ -1,4 +1,4 @@
-package com.example.watherhelper.forecast
+package com.example.watherhelper.forecast.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -39,8 +39,13 @@ gradlePlugin {
             id = libs.plugins.wh.hilt.get().pluginId
             implementationClass = "HiltConventionPlugin"
         }
+//        register("androidApplication") {
+//            id = libs.plugins.wh.android.common.get().pluginId
+//            implementationClass = "AndroidApplicationConventionPlugin"
+//        }
         register("androidApplication") {
-            id = libs.plugins.wh.android.common.get().pluginId
+            // ID плагина должен быть жестко заданной строкой!
+            id = "wh.android.common"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("jvmLibrary") {

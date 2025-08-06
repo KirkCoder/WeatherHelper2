@@ -21,7 +21,7 @@ import javax.inject.Inject
 class MainLocationWeatherViewModel @Inject constructor(
     private val getMainLocationWeatherUseCase: GetMainLocationWeatherUseCase,
     private val application: Application,
-    @Dispatcher(WeatherHelperDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
+    @Dispatcher(WeatherHelperDispatchers.Default) private val defaultDispatcher: CoroutineDispatcher,
 ) : ViewModel() {
 
     private val _forecastLiveData = MutableLiveData<List<WeatherPresentation>>()
@@ -44,7 +44,7 @@ class MainLocationWeatherViewModel @Inject constructor(
                     .map { locationWithForecast ->
                         locationWithForecast.map(application)
                     }
-                    .flowOn(ioDispatcher)
+                    .flowOn(defaultDispatcher)
                     .collect { forecast ->
                         _forecastLiveData.value = forecast
                     }

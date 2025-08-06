@@ -1,7 +1,7 @@
 package com.example.watherhelper.forecast.mappers
 
 import com.example.forecast.models.Forecast
-import com.example.watherhelper.forecast.ForecastsDto
+import com.example.watherhelper.forecast.dto.ForecastsDto
 import com.example.forecast.models.Icon
 
 internal fun ForecastsDto.toForecasts(): List<Forecast> {

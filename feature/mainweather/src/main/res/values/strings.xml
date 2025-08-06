@@ -3,6 +3,8 @@
     <string name="feels_like">Feels like %1$d°</string>
     <string name="wind">Wind %1$d m/s</string>
     <string name="clouds">Clouds %1$d%%</string>
+    <string name="night">night</string>
+    <string name="day">day</string>
     <string name="rain">Rain %1$d%%</string>
     <string name="action_settings">Settings</string>
 </resources>
